@@ -1,14 +1,11 @@
-.automation-panel {
-  width: 100%;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  border-radius: 2px;
+.isHighlighted {
+  box-shadow: inset 0px 0px 0px 2px red;
 }
-.automation-panel .automation-content {
-  background: white;
-  margin: 0 auto;
-  height: 200px;
-  border-radius: 5px;
-  width: 90%;
+
+.isSelected {
+  box-shadow: inset 0px 0px 0px 2px green;
+}
+
+.isPredicted {
+  box-shadow: inset 0px 0px 0px 2px blue;
 }

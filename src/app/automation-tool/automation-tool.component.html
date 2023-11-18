@@ -1,0 +1,153 @@
+<div class="fixed left-0 bottom-0 w-full rounded-sm">
+  <div class="relative bg-white my-0 mx-auto rounded-md rounded-b-none w-11/12 p-4">
+    <div class="w-full my-0 mx-auto p-5 bg-white" *ngIf="isElementSelection">
+      <div class="flex justify-between mb-5">
+        <div class="heading__title">
+          <p class="whitespace-nowrap text-[#0e1726] text-lg">Step 1. For loop</p>
+          <p class="whitespace-nowrap text-[rgb(14,23,38)] text-base">
+            <ng-container *ngIf="selectedElementsLength > 0; else selectElementMessage">
+                Great! You selected {{ selectedElementsLength }} elements, we predicted {{ predictedElementsLength }} additional elements.
+                In total {{ predictedElementsLength + selectedElementsLength }} elements are selected.
+            </ng-container>
+            <ng-template #selectElementMessage>
+              <div class="message">Select at least one elements before proceeding.</div>
+            </ng-template>
+          </p>
+        </div>
+      
+        <div class="flex flex-row-reverse">
+          <div class="outline-essentional-wrapper">
+            <img
+              class="vector"
+              src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/vector-1.svg"
+            />
+          </div>
+          <div class="outline-essentional-wrapper">
+            <img
+              class="vector"
+              src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/material-symbols-close-rounded.svg"
+            />
+          </div>
+    
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-10">
+        <button [disabled]="isResetAllowed" class="flex w-32 h-14 justify-center items-center border-[#4361EE] text-[#4361EE] rounded-lg text-xl border" (click)="resetAutomation()">Reset</button>
+        <button class="flex w-32 h-14 justify-center items-center bg-[#4361EE] text-white rounded-lg text-xl border" (click)="moveToNextStep()">Save</button>
+      </div>
+    </div>
+
+
+  <div class="w-full my-0 mx-auto p-5 bg-white" *ngIf="activeStep === STEPS_DETAILS.ACTION_SELECTION">
+    <div class="flex justify-between mb-5">
+      <div class="heading__title">
+        <p class="whitespace-nowrap text-[#0e1726] text-lg">Step 2. Do an action on each element</p>
+        <p class="whitespace-nowrap text-[#0e1726] text-base">Add action you want the bot to do on the page</p>
+      </div>
+    
+      <div class="flex flex-row-reverse">
+        <div class="outline-essentional-wrapper">
+          <img
+            class="vector"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/vector-1.svg"
+          />
+        </div>
+        <div class="outline-essentional-wrapper">
+          <img
+            class="vector"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/material-symbols-close-rounded.svg"
+          />
+        </div>
+  
+      </div>
+    </div>
+   
+  
+    <div class="flex justify-between mx-8  gap-5">
+
+      <div class="w-232 h-137 bg-fafafa cursor-pointer rounded-6 shadow-sm flex justify-center" (click)="toggleClick()">
+        <div class="inline-flex flex-col self-center items-center gap-12 p-4">
+          <img
+            class="img"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/bold-duotone---essentional--ui---cursor.svg"
+          />
+          <div class="div-3">
+            <div class="text-wrapper-2">Click a button</div>
+            <p class="p">allows you to click on a button for each element</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="w-232 h-137 bg-fafafa rounded-6 shadow-sm flex justify-center cursor-pointer" (click)="toggleInput()">
+        <div class="inline-flex flex-col self-center items-center gap-12 p-4">
+          <img
+            class="img"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/bold-duotone---text-formatting---text.svg"
+          />
+          <div class="div-3">
+            <div class="text-wrapper-2">Input text</div>
+            <p class="p">allows you to input text for each element</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-232 h-137 bg-fafafa rounded-6 shadow-sm flex justify-center opacity-80  pointer-events-none bg-gray-500 text-white" disabled>
+        <div class="inline-flex flex-col self-center items-center gap-12 p-4">
+          <img
+            class="img"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/bold-duotone---essentional--ui---database.svg"
+          />
+          <div class="div-3">
+            <div class="text-wrapper-2">Store data</div>
+            <p class="p">Amet minim mollit non deserunt ullamco est sit.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-232 h-137 bg-fafafa rounded-6 shadow-sm flex justify-center opacity-80  pointer-events-none bg-gray-500 text-white" disabled>
+        <div class="inline-flex flex-col self-center items-center gap-12 p-4">
+          <img
+            class="img"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/bold-duotone---list---list.svg"
+          />
+          <div class="div-3">
+            <div class="text-wrapper-2">If condition</div>
+            <p class="p">Amet minim mollit non deserunt ullamco est sit.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-232 h-137 bg-fafafa rounded-6 shadow-sm flex justify-center opacity-80  pointer-events-none bg-gray-500 text-white" disabled>
+        <div class="inline-flex flex-col self-center items-center gap-12 p-4">
+          <img
+            class="img"
+            src="https://generation-sessions.s3.amazonaws.com/781b5a3e77f86e75bcdc3e3f87f9924b/img/bold-duotone---arrows---restart-1.svg"
+          />
+          <div class="div-3">
+            <div class="text-wrapper-2">For Loop</div>
+            <p class="p">Amet minim mollit non deserunt ullamco est sit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="flex justify-end mt-10">
+      <button class="flex w-32 h-14 justify-center items-center bg-[#4361EE] text-white rounded-lg text-xl border" (click)="runAutomation()">Run bot</button>
+    </div>
+  </div>
+
+
+  <div class="flex flex-col" *ngIf="activeStep === STEPS_DETAILS.INPUT_SELECTION">
+    <h3>Step 3: Enter Text</h3>
+    <span>Please enter text to be populated in input</span>
+    <input type="text" [formControl]="populateTextControl">
+    <button class="flex w-32 h-14 justify-center items-center bg-[#4361EE] text-white rounded-lg text-xl border" (click)="populateTextContent()">Populate</button>
+  </div>
+
+  <div class="flex flex-row justify-end gap-10" *ngIf="activeStep === STEPS_DETAILS.BOT_RUN_COMPLETED">
+    <h3 class="text-lg font-bold">Action Successfully Done!</h3>
+    <button class="flex w-60 h-14 justify-center items-center border-[#4361EE] text-[#4361EE] rounded-lg text-xl border" (click)="resetAutomation()">Back to selection</button>
+    <button class="flex w-60 h-14 justify-center items-center bg-[#4361EE] text-white rounded-lg text-xl border" (click)="moveToActionSelection()">Another action on selected</button>
+  </div>
+</div>
+
+</div>
